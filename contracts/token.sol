@@ -12,13 +12,11 @@ contract CarCrypto is ERC20("CarCrypto","CCAR"),ERC20Burnable,Ownable {
     transferOwnership(msg.sender);
   }
 
-  function mint (address to, uint amount) public onlyOwner {
+  function mint(address to, uint amount) public onlyOwner {
     require(
       ERC20.totalSupply() + amount <= cap, "CarCrypto: cap exceeded"
     );
 
     _mint(to, amount);
 }
-
-
 }
